@@ -8,14 +8,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "time.h"
+#include <time.h>
 #include <ctype.h>
 
 int main() {
     int userNum=0;
     int searchedNum=0;
     int selectorYN=0;
-    char ch;
+    int ok;
     
     for(;;){
         srand(time(NULL));
@@ -25,22 +25,20 @@ int main() {
             for(;;){
                 
                 printf("Enter positive number: ");
-                scanf(" %c", &ch);
+                ok=scanf("%d", &userNum);
+                fpurge(stdin);
                 
-                if (!isdigit(ch)){
+                if (!ok){
                     printf("It's a string\n");
                     continue;
                 }
                 
-                if ((ch-'0')<0){
+                if (userNum<0){
                     printf("Negative number\n");
                     continue;
                 }
-                
                 break;
             }
-            
-            userNum=ch-'0';
             
             if (userNum==searchedNum){
                 printf("YAHOO! RIGHT!\n");
@@ -54,7 +52,6 @@ int main() {
                 printf("Lower!\n");
             }
         }
-        
         printf("Exit? Y/N\n");
         scanf(" %c",&selectorYN);
         if (selectorYN=='y'){
