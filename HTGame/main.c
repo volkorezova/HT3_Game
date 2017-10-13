@@ -23,23 +23,19 @@ int main() {
         
         for (int i=0; i<3; i++){
             for(;;){
-                
                 printf("Enter positive number: ");
                 ok=scanf("%d", &userNum);
                 fpurge(stdin);
-                
                 if (!ok){
                     printf("It's a string\n");
                     continue;
                 }
-                
                 if (userNum<0){
                     printf("Negative number\n");
                     continue;
                 }
                 break;
             }
-            
             if (userNum==searchedNum){
                 printf("YAHOO! RIGHT!\n");
             }
@@ -59,8 +55,6 @@ int main() {
         }
         
     }
-    
     return 0;
-    
 }
 
